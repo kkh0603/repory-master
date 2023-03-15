@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master_Schedular</title>
+  <link rel="stylesheet" href="MSIndex.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <!-- <link rel="stylesheet" href="./node_modules/fullcalendar/main.min.css">
+  <script src="./node_modules/fullcalendar/main.min.js" defer></script> -->
+  <script src = "./msTodo.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1> 
+      <div>Master Schedular</div>
+    </h1>
+    <h3>
+      <div>(todoList/Calendar)</div>
+    </h3>
+  </header>
+  <main>
+    <!-- 왼쪽 프레임 -->
+    <div class="TD">
+      <!-- 왼쪽 입력부 -->
+      <div id = "todoBlock" class="testtest">
+        <div class="todoInputContainer">
+          <span> 할일 : </span>
+          <input type="text" placeholder="할 일을 입력해 주세요">
+          <!-- <span> 분류 : </span>
+          <input type="text" placeholder="분류" list = "TodoDataList">
+          <datalist id = "TodoDataList">
+            <option value="normal"></option>
+            <option value="important"></option>
+          </datalist> -->
+        </div>
+        <div class="dateInputContainer">
+          <!-- 날짜 좌측 -->
+          <span class="partition">
+            <span> 날짜: </span>
+            <label for=""> 긴 일정
+              <input type="checkbox" id="longSchedul" class="inputcontainerCheckBox">
+            </label>
+          </span>
+          <!-- 날짜 우측 -->
+          <span class="partition">
+            <input type="date" id="dateInput">
+            <input type="date" id="endDateInput" class="displayEndDay">
+          </span>
+          <!-- 시간 좌측 -->
+          <span class="partition">
+            <span>시간 : </span>
+            <label for="" class="timeLeft"> 온종일
+              <input type="checkbox" id="allDay"  class="inputcontainerCheckBox">
+            </label>
+          </span>
+          <!-- 시간 우측 -->
+          <span class="partition">
+            <input type="time" id="timeInput" class="timeRight">
+            <input type="time" id="endTimeInput" class="diplayTime timeRight">
+          </span>
+        </div>
+        <div class="InputButtonCTN"> 
+          <span></span>
+          <button id = "inputBtn" class="todoBtn">입력</button>
+          <label for=""> 완료 숨김
+            <input type="checkbox" id="checkedItem">
+          </label>
+          <button id="sortBtn" class="todoBtn">날짜 정렬</button>
+          <span></span>
+        </div>
+      </div>
+      <!-- 왼쪽 리스업부 -->
+      <div class="todoItemList">
+        <div id="tableItem">
+          <table id = 'todo-Table'>
+            <tr>
+              <td></td>
+              <td>Start Date</td>
+              <td>End Date</td>
+              <td>Start Time</td>
+              <td>End Time</td>
+              <td>Todo</td>
+              <!-- <td>
+                <select id="todoFilter">
+                </select>
+              </td> -->
+              <td>Edit</td>
+              <td>Del</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- 오른쪽 프레임 -->
+    <div class="CLD">
+      <div id="calendarBlock">
+        <div id='calendar'></div>
+      </div>
+    </div>
+    <!-- 모달 창 -->
+    <div class="overlayModalBox" id="overlayModalBox">
+      <div class="todoModalBox" id="todoModalBox">
+        <div id = "todoBlockModal">
+          <div class="todoInputContainer">
+            <span> 할일 : </span>
+            <input type="text" placeholder="할 일을 입력해 주세요" id="modalEditTodo">
+            <!-- <span> 분류 : </span>
+            <input type="text" placeholder="분류" list = "TodoDataList" id="modalEditCategory">
+            <datalist id = "TodoDataList">
+              <option value="normal"></option>
+              <option value="important"></option>
+            </datalist> -->
+          </div>
+          <div class="dateInputContainer">
+            <!-- 날짜 좌측 -->
+            <span class="partition">
+              <span> 날짜 : </span>
+              <label for=""> 긴 일정
+                <input type="checkbox" id="longSchedulModal">
+              </label>
+            </span>
+            <!-- 날짜 우측 -->
+            <span class="partition">
+              <input type="date" id="modalEditDate">
+              <input type="date" id="modalEditEndDate" class="diplayEndDateModal">
+            </span>
+            <!-- 시간 좌측 -->
+            <span class="partition">
+              <span> 시간 : </span>
+              <label for="" class="timeLeftModal"> 온종일
+                <input type="checkbox" id="modalAllDay">
+              </label>
+            </span>
+            <!-- 시간 우측 -->
+            <span class="partition">
+              <input type="time" id="modalEditTime" class="timeRightModal">
+              <input type="time" id="modalEditEndTime" class="diplayTimeModal timeRightModal">
+            </span>
+          </div>
+          <div class="InputButtonCTN"> 
+            <span></span>
+            <button id = "changeBtn" class="todoBtn">변경</button>
+          </div>
+        </div>
+      </div>
+      <div class="modalCloseBtn" id="modalCloseBtn">X</div>
+    </div>
+  </main>
+</body>
+</html>
